@@ -1,10 +1,13 @@
 import type { Options } from "@wdio/types";
 
 const chromeStable = {
+  maxInstances: 1,
   browserName: "chrome",
   browserVersion: "stable",
+  "goog:chromeOptions": {
+    args: ["--no-sandbox", "--disable-dev-shm-usage", "--headless"],
+  },
 };
-
 
 export const config: Options.Testrunner = {
   //

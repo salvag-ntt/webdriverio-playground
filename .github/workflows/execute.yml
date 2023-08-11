@@ -1,4 +1,4 @@
-name: Security
+name: Test
 
 on: 
   push:
@@ -9,13 +9,16 @@ on:
 jobs:
   check-dependencies:
     runs-on: ubuntu-latest
-    name: Audit Dependencies
+    env:
+      NODE_VERSION: 18.x
+    name: Execute (chrome)
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js 16.x
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
-          node-version: 18.17.1
+          node-version: ${{ env.NODE_VERSION}}
       
       - name: Restore cache
         id: cache
@@ -31,6 +34,8 @@ jobs:
         run: |
           yarn list
 
-      - name: Run Audit
-        run: yarn ci --cache-dir .yarn/ && yarn audit
+      - name: Run tests
+        run: | 
+          yarn ci --cache-dir .yarn/
+          yarn test:acceptance:desktop
   
