@@ -1,4 +1,11 @@
 import type { Options } from "@wdio/types";
+
+const chromeStable = {
+  browserName: "chrome",
+  browserVersion: "stable",
+};
+
+
 export const config: Options.Testrunner = {
   //
   // ====================
@@ -57,11 +64,9 @@ export const config: Options.Testrunner = {
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
   // https://saucelabs.com/platform/platform-configurator
   //
-  capabilities: [
-    {
-      browserName: "chrome",
-    },
-  ],
+  // Standardized here https://w3c.github.io/webdriver/#capabilities
+  //
+  capabilities: [chromeStable],
 
   //
   // ===================
