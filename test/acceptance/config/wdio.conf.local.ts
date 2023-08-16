@@ -1,15 +1,21 @@
 import type { Options } from "@wdio/types";
 
+const BUILD_ENV = process.env.BUILD_ENV || "local";
+
 const chromeStable = {
-  maxInstances: 1,
+  maxInstances: 5,
   browserName: "chrome",
   browserVersion: "stable",
-  "goog:chromeOptions": {
-    args: ["--no-sandbox", "--disable-dev-shm-usage", "--headless"],
-  },
 };
 
-export const config: Options.Testrunner = {
+if (BUILD_ENV == "ci") {
+  chromeStable["goog:chromeOptions"] = {
+    args: ["--no-sandbox", "--disable-dev-shm-usage", "--headless"],
+  };
+  chromeStable.maxInstances = 1;
+}
+
+let tmpConfig : Options.Testrunner = {
   //
   // ====================
   // Runner Configuration
@@ -40,7 +46,7 @@ export const config: Options.Testrunner = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: ["../features/*.feature"],
+  specs: ["../features/**/*.feature"],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -78,7 +84,7 @@ export const config: Options.Testrunner = {
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: "warn",
+  logLevel: "info",
   //
   // Set specific log levels per logger
   // loggers:
@@ -334,3 +340,5 @@ export const config: Options.Testrunner = {
   // onReload: function(oldSessionId, newSessionId) {
   // }
 };
+
+export const config: Options.Testrunner = tmpConfig;

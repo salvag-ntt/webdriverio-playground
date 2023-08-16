@@ -21,5 +21,6 @@
     "ci": "yarn install --frozen-lockfile",
     "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
     "test:acceptance:desktop": "wdio run ./test/acceptance/config/wdio.conf.local.ts"
-  }
+  },
+  "version": "1.0.0-SNAPSHOT"
 }
