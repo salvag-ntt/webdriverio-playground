@@ -1,0 +1,6 @@
+{
+  "local": "http://local.ee.co.uk:3002/exp/consumer-electronics/",
+  "preview": "",
+  "staging": "https://webaem-staging-integration.ps.intdigital.ee.co.uk/exp/consumer-electronics/",
+  "e2e1": "https://webaem-e2e1-integration.ps.intdigital.ee.co.uk/exp/consumer-electronics/"
+}

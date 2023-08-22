@@ -1,6 +1,5 @@
 {
   "name": "webdriverio-playground",
-  "type": "module",
   "devDependencies": {
     "@wdio/cli": "^8.14.4",
     "@wdio/cucumber-framework": "^8.14.0",

@@ -15,7 +15,7 @@ if (BUILD_ENV == "ci") {
   chromeStable.maxInstances = 1;
 }
 
-let tmpConfig : Options.Testrunner = {
+let tmpConfig: Options.Testrunner = {
   //
   // ====================
   // Runner Configuration

@@ -1,8 +1,8 @@
 import { Given, When, Then } from "@wdio/cucumber-framework";
 import { expect, $ } from "@wdio/globals";
 
-import LoginPage from "../page-objects/login.page.js";
-import SecurePage from "../page-objects/secure.page.js";
+import LoginPage from "../page-objects/login.page";
+import SecurePage from "../page-objects/secure.page";
 
 const pages = {
   login: LoginPage,
